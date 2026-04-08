@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UserProfile } from '../../../types';
-import { Search, Edit2, X, Save } from 'lucide-react';
+import { Search, Edit2, X, Save, Users } from 'lucide-react';
 
 interface Props {
   users: UserProfile[];
@@ -51,7 +51,7 @@ const UserManagement: React.FC<Props> = ({ users, searchTerm, setSearchTerm, tog
             placeholder="Search users..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-blue-600 transition-all text-sm font-bold" 
+            className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-blue-600 text-sm font-bold" 
           />
         </div>
       </div>
@@ -105,7 +105,7 @@ const UserManagement: React.FC<Props> = ({ users, searchTerm, setSearchTerm, tog
                     <span className="font-black text-gray-900 text-sm">৳{(u.balance || 0).toFixed(2)}</span>
                     <button 
                       onClick={() => handleEdit(u)}
-                      className="p-2 text-gray-300 hover:text-blue-600 transition-all"
+                      className="p-2 text-gray-300 hover:text-blue-600"
                     >
                       <Edit2 size={14} />
                     </button>
@@ -154,14 +154,14 @@ const UserManagement: React.FC<Props> = ({ users, searchTerm, setSearchTerm, tog
                   type="number" 
                   value={newBalance}
                   onChange={(e) => setNewBalance(e.target.value)}
-                  className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-blue-600 transition-all font-black text-xl"
+                  className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-blue-600 font-black text-xl"
                   placeholder="0.00"
                 />
               </div>
 
               <button 
                 onClick={handleSaveBalance}
-                className="w-full bg-[#006a4e] text-white py-4 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] transition-all"
+                className="w-full bg-[#006a4e] text-white py-4 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42]"
               >
                 Update Balance
               </button>

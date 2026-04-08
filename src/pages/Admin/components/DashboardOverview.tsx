@@ -115,7 +115,6 @@ const DashboardOverview: React.FC<Props> = ({ users, products, orders, loading, 
           </div>
         </div>
       </div>
-    </div>
 
       {/* Database Tools */}
       <div className="bg-white p-12 rounded-[48px] shadow-2xl shadow-gray-200/50 border border-gray-50 relative overflow-hidden">
@@ -131,7 +130,7 @@ const DashboardOverview: React.FC<Props> = ({ users, products, orders, loading, 
             <button 
               onClick={onResetData}
               disabled={loading}
-              className="bg-red-600 text-white px-10 py-5 rounded-[24px] font-black uppercase tracking-[0.2em] text-[10px] shadow-2xl shadow-red-900/20 hover:bg-red-700 transition-all flex items-center space-x-4 active:scale-95 disabled:opacity-50"
+              className="bg-red-600 text-white px-10 py-5 rounded-[24px] font-black uppercase tracking-[0.2em] text-[10px] shadow-2xl shadow-red-900/20 hover:bg-red-700 flex items-center space-x-4 disabled:opacity-50"
             >
               <Trash2 size={20} />
               <span>{loading ? 'Processing...' : 'Reset Database'}</span>
@@ -154,7 +153,7 @@ const DashboardOverview: React.FC<Props> = ({ users, products, orders, loading, 
                   alert('Error creating test user: ' + err);
                 }
               }}
-              className="bg-[#0a192f] text-white px-10 py-5 rounded-[24px] font-black uppercase tracking-[0.2em] text-[10px] shadow-2xl shadow-black/20 hover:bg-black transition-all flex items-center space-x-4 active:scale-95"
+              className="bg-[#0a192f] text-white px-10 py-5 rounded-[24px] font-black uppercase tracking-[0.2em] text-[10px] shadow-2xl shadow-black/20 hover:bg-black flex items-center space-x-4"
             >
               <Users size={20} />
               <span>Generate Test User</span>

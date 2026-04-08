@@ -33,20 +33,20 @@ const ProductManagement: React.FC<Props> = ({
               placeholder="Search products..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full lg:w-64 pl-12 pr-4 py-3 bg-white border border-gray-100 rounded-xl outline-none focus:border-blue-600 transition-all text-sm font-bold shadow-sm" 
+              className="w-full lg:w-64 pl-12 pr-4 py-3 bg-white border border-gray-100 rounded-xl outline-none focus:border-blue-600 text-sm font-bold shadow-sm" 
             />
           </div>
           <select 
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="px-4 py-3 rounded-xl border border-gray-100 outline-none focus:border-blue-600 transition-all text-[10px] bg-white font-black uppercase tracking-widest shadow-sm cursor-pointer"
+            className="px-4 py-3 rounded-xl border border-gray-100 outline-none focus:border-blue-600 text-[10px] bg-white font-black uppercase tracking-widest shadow-sm cursor-pointer"
           >
             <option value="All">All Categories</option>
             {categories.map(cat => <option key={cat.id} value={cat.name}>{cat.name}</option>)}
           </select>
           <button 
             onClick={onAddProduct}
-            className="bg-[#006a4e] text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] transition-all flex items-center space-x-2"
+            className="bg-[#006a4e] text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] flex items-center space-x-2"
           >
             <Plus size={18} />
             <span>Add Product</span>
@@ -80,13 +80,13 @@ const ProductManagement: React.FC<Props> = ({
                 <div className="flex space-x-2">
                   <button 
                     onClick={() => onEditProduct(p)}
-                    className="p-2 text-gray-300 hover:text-blue-600 transition-all"
+                    className="p-2 text-gray-300 hover:text-blue-600"
                   >
                     <Edit size={16} />
                   </button>
                   <button 
                     onClick={() => onDeleteProduct(p.id)}
-                    className="p-2 text-gray-300 hover:text-red-600 transition-all"
+                    className="p-2 text-gray-300 hover:text-red-600"
                   >
                     <Trash2 size={16} />
                   </button>

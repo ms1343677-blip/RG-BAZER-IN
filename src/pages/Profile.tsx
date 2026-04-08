@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuth } from '../lib/AuthContext';
 import { auth } from '../lib/firebase';
 import { useNavigate, Link } from 'react-router-dom';
-import { RefreshCw, ShieldCheck, LogOut, Wallet, ShoppingBag, Key, User as UserIcon, ChevronRight, Settings, CreditCard } from 'lucide-react';
+import { RefreshCw, ShieldCheck, LogOut, Wallet, ShoppingBag, Key, User as UserIcon, ChevronRight, Settings, CreditCard, PhoneCall } from 'lucide-react';
 import { useLoadingStore } from '../lib/loadingStore';
 
 const Profile: React.FC = () => {

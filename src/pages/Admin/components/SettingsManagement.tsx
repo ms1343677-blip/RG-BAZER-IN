@@ -57,7 +57,7 @@ const SettingsManagement: React.FC = () => {
           <button 
             onClick={handleSave}
             disabled={saving}
-            className="bg-[#006a4e] text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] transition-all flex items-center space-x-2"
+            className="bg-[#006a4e] text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] flex items-center space-x-2"
           >
             {saving ? <span>Saving...</span> : <><Save size={18} /><span>Save Changes</span></>}
           </button>
@@ -74,7 +74,7 @@ const SettingsManagement: React.FC = () => {
               value={settings.notice}
               onChange={(e) => setSettings({...settings, notice: e.target.value})}
               placeholder="Enter notice text here..."
-              className="w-full px-5 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-blue-600 outline-none transition-all min-h-[120px] text-sm font-bold"
+              className="w-full px-5 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-blue-600 outline-none min-h-[120px] text-sm font-bold"
             />
           </div>
 

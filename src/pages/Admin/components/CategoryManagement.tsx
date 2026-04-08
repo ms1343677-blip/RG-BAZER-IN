@@ -32,7 +32,7 @@ const CategoryManagement: React.FC<Props> = ({
               placeholder="e.g. Mobile Games" 
               value={newItemName}
               onChange={(e) => setNewItemName(e.target.value)}
-              className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-blue-600 transition-all font-bold text-sm"
+              className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-blue-600 font-bold text-sm"
             />
           </div>
           <div className="w-full md:w-32 space-y-2">
@@ -42,14 +42,14 @@ const CategoryManagement: React.FC<Props> = ({
               placeholder="1" 
               value={newItemOrder}
               onChange={(e) => setNewItemOrder(e.target.value)}
-              className="w-full px-4 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-blue-600 transition-all font-black text-sm text-center"
+              className="w-full px-4 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-blue-600 font-black text-sm text-center"
             />
           </div>
           <div className="flex items-end">
             <button 
               onClick={onAddCategory}
               disabled={loading}
-              className="w-full md:w-auto bg-[#006a4e] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] disabled:opacity-50 transition-all"
+              className="w-full md:w-auto bg-[#006a4e] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] disabled:opacity-50"
             >
               {loading ? 'Adding...' : 'Create Category'}
             </button>
@@ -75,7 +75,7 @@ const CategoryManagement: React.FC<Props> = ({
               </div>
               <button 
                 onClick={() => onDeleteCategory(cat.id)}
-                className="p-2 text-gray-300 hover:text-red-600 transition-all"
+                className="p-2 text-gray-300 hover:text-red-600"
               >
                 <Trash2 size={18} />
               </button>
