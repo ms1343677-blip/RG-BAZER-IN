@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'motion/react';
 import { AuthProvider, useAuth } from './lib/AuthContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import BottomNav from './components/BottomNav';
 import LoadingBar from './components/LoadingBar';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -14,17 +14,15 @@ import TopUp from './pages/TopUp';
 import AddMoney from './pages/AddMoney';
 import MyOrders from './pages/MyOrders';
 import MyCodes from './pages/MyCodes';
+import Statements from './pages/Statements';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, loading } = useAuth();
   if (loading) return (
-    <div className="app-container shadow-2xl animate-pulse">
-      <div className="h-16 bg-gray-50 border-b border-gray-100"></div>
-      <div className="flex-grow p-4 space-y-4">
-        <div className="h-40 bg-gray-50 rounded-xl"></div>
-        <div className="h-20 bg-gray-50 rounded-xl"></div>
-        <div className="h-60 bg-gray-50 rounded-xl"></div>
-      </div>
+    <div className="flex-grow p-4 space-y-4 animate-pulse">
+      <div className="h-40 bg-gray-50 rounded-3xl"></div>
+      <div className="h-20 bg-gray-50 rounded-3xl"></div>
+      <div className="h-60 bg-gray-50 rounded-3xl"></div>
     </div>
   );
   if (!user) return <Navigate to="/login" />;
@@ -66,6 +64,7 @@ const AppContent: React.FC = () => {
               <Route path="/add-money" element={<ProtectedRoute><AddMoney /></ProtectedRoute>} />
               <Route path="/my-orders" element={<ProtectedRoute><MyOrders /></ProtectedRoute>} />
               <Route path="/my-codes" element={<ProtectedRoute><MyCodes /></ProtectedRoute>} />
+              <Route path="/statements" element={<ProtectedRoute><Statements /></ProtectedRoute>} />
             </Routes>
           </main>
           <BottomNav />
@@ -86,6 +85,7 @@ export default function App() {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <AppContent />
       </Router>
     </AuthProvider>

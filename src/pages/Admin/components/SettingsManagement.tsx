@@ -46,113 +46,113 @@ const SettingsManagement: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div className="p-8 border-b border-gray-100 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
               <Save size={20} />
             </div>
-            <h2 className="text-xl font-bold text-gray-900">App Settings</h2>
+            <h2 className="text-lg font-black text-gray-900 uppercase tracking-tighter">App Configuration</h2>
           </div>
           <button 
             onClick={handleSave}
             disabled={saving}
-            className="bg-blue-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center space-x-2"
+            className="bg-[#006a4e] text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] transition-all flex items-center space-x-2"
           >
             {saving ? <span>Saving...</span> : <><Save size={18} /><span>Save Changes</span></>}
           </button>
         </div>
 
-        <div className="p-8 space-y-8">
+        <div className="p-8 space-y-10">
           {/* Notice Section */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2 text-gray-900 font-bold">
-              <Bell size={18} className="text-blue-600" />
+            <div className="flex items-center space-x-2 text-gray-900 font-black uppercase tracking-widest text-[10px]">
+              <Bell size={16} className="text-blue-600" />
               <h3>Home Notice</h3>
             </div>
             <textarea 
               value={settings.notice}
               onChange={(e) => setSettings({...settings, notice: e.target.value})}
               placeholder="Enter notice text here..."
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 outline-none transition-all min-h-[100px] text-sm"
+              className="w-full px-5 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-blue-600 outline-none transition-all min-h-[120px] text-sm font-bold"
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Payment Numbers */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2 text-gray-900 font-bold">
-                <Smartphone size={18} className="text-blue-600" />
+            <div className="space-y-6">
+              <div className="flex items-center space-x-2 text-gray-900 font-black uppercase tracking-widest text-[10px]">
+                <Smartphone size={16} className="text-blue-600" />
                 <h3>Payment Numbers</h3>
               </div>
               <div className="space-y-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">bKash Number</label>
+                <div className="space-y-2">
+                  <label className="block text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">bKash Number</label>
                   <input 
                     type="text" 
                     value={settings.bkashNumber}
                     onChange={(e) => setSettings({...settings, bkashNumber: e.target.value})}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 outline-none text-sm"
+                    className="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-blue-600 outline-none text-sm font-bold"
                   />
                 </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Nagad Number</label>
+                <div className="space-y-2">
+                  <label className="block text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Nagad Number</label>
                   <input 
                     type="text" 
                     value={settings.nagadNumber}
                     onChange={(e) => setSettings({...settings, nagadNumber: e.target.value})}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 outline-none text-sm"
+                    className="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-blue-600 outline-none text-sm font-bold"
                   />
                 </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Rocket Number</label>
+                <div className="space-y-2">
+                  <label className="block text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Rocket Number</label>
                   <input 
                     type="text" 
                     value={settings.rocketNumber}
                     onChange={(e) => setSettings({...settings, rocketNumber: e.target.value})}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 outline-none text-sm"
+                    className="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-blue-600 outline-none text-sm font-bold"
                   />
                 </div>
               </div>
             </div>
 
             {/* Support & Theme */}
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <div className="flex items-center space-x-2 text-gray-900 font-bold">
-                  <Phone size={18} className="text-blue-600" />
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <div className="flex items-center space-x-2 text-gray-900 font-black uppercase tracking-widest text-[10px]">
+                  <Phone size={16} className="text-blue-600" />
                   <h3>Support</h3>
                 </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">WhatsApp Number</label>
+                <div className="space-y-2">
+                  <label className="block text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">WhatsApp Number</label>
                   <input 
                     type="text" 
                     value={settings.whatsappNumber}
                     onChange={(e) => setSettings({...settings, whatsappNumber: e.target.value})}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 outline-none text-sm"
+                    className="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-blue-600 outline-none text-sm font-bold"
                   />
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="flex items-center space-x-2 text-gray-900 font-bold">
-                  <Palette size={18} className="text-blue-600" />
+              <div className="space-y-6">
+                <div className="flex items-center space-x-2 text-gray-900 font-black uppercase tracking-widest text-[10px]">
+                  <Palette size={16} className="text-blue-600" />
                   <h3>Theme</h3>
                 </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Primary Theme Color</label>
+                <div className="space-y-2">
+                  <label className="block text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Primary Theme Color</label>
                   <div className="flex items-center space-x-4">
                     <input 
                       type="color" 
                       value={settings.themeColor}
                       onChange={(e) => setSettings({...settings, themeColor: e.target.value})}
-                      className="w-12 h-12 rounded-lg cursor-pointer"
+                      className="w-12 h-12 rounded-xl cursor-pointer border-none"
                     />
                     <input 
                       type="text" 
                       value={settings.themeColor}
                       onChange={(e) => setSettings({...settings, themeColor: e.target.value})}
-                      className="flex-1 px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 outline-none text-sm font-mono"
+                      className="flex-1 px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-blue-600 outline-none text-sm font-mono font-bold"
                     />
                   </div>
                 </div>

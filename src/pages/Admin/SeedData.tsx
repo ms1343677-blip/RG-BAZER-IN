@@ -65,13 +65,15 @@ const SeedData: React.FC = () => {
   };
 
   return (
-    <div className="p-8 bg-white rounded-2xl shadow-sm border border-gray-100">
-      <h2 className="text-xl font-bold mb-4">Database Seeding</h2>
-      <p className="text-sm text-gray-500 mb-6">Click the button below to populate the database with initial products and banners.</p>
+    <div className="p-10 bg-white rounded-2xl border border-gray-100 shadow-sm max-w-2xl">
+      <div className="space-y-2 mb-8">
+        <h2 className="text-xl font-black text-gray-900 uppercase tracking-tighter">Database Seeding</h2>
+        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Populate the database with initial products and banners.</p>
+      </div>
       <button 
         onClick={seed}
         disabled={loading}
-        className="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 disabled:opacity-50"
+        className="bg-[#006a4e] text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] disabled:opacity-50 transition-all"
       >
         {loading ? 'Seeding...' : 'Seed Initial Data'}
       </button>

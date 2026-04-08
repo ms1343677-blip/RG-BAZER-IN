@@ -57,137 +57,114 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="flex-grow flex flex-col items-center justify-center px-4 py-12 bg-gray-50">
-      <div className="w-full max-w-md">
-        <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
-          <div className="bg-[#006a4e] p-8 text-white relative overflow-hidden">
-            <div className="relative z-10">
-              <h1 className="text-3xl font-black uppercase tracking-tighter mb-2">Join Us</h1>
-              <p className="text-white/70 text-xs font-bold uppercase tracking-widest">Create your account</p>
-            </div>
-            <div className="absolute -right-8 -bottom-8 opacity-10">
-              <UserPlus size={150} />
-            </div>
+    <div className="flex-grow flex flex-col items-center justify-center px-6 py-12 bg-white min-h-screen">
+      <div className="w-full max-w-md space-y-8">
+        <div className="text-center space-y-2">
+          <div className="w-16 h-16 bg-[#006a4e] rounded-2xl flex items-center justify-center text-white mx-auto shadow-lg mb-4">
+            <UserPlus size={32} />
           </div>
+          <h1 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">Create Account</h1>
+          <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Join our community</p>
+        </div>
 
-          <div className="p-8">
-            {error && (
-              <div className="bg-red-50 border border-red-100 text-red-600 px-4 py-3 rounded-xl text-[10px] font-black uppercase tracking-tight mb-6">
-                {error}
-              </div>
-            )}
-
-            <form onSubmit={handleRegister} className="space-y-4">
-              <div className="space-y-1.5">
-                <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
-                <div className="relative">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300" size={18} />
-                  <input 
-                    type="text" 
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 bg-gray-50 border-2 border-transparent focus:border-[#006a4e] focus:bg-white rounded-2xl outline-none transition-all font-bold text-sm"
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Phone</label>
-                  <div className="relative">
-                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300" size={16} />
-                    <input 
-                      type="tel" 
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3.5 bg-gray-50 border-2 border-transparent focus:border-[#006a4e] focus:bg-white rounded-2xl outline-none transition-all font-bold text-sm"
-                      placeholder="Phone"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-1.5">
-                  <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Country</label>
-                  <div className="relative">
-                    <Globe className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300" size={16} />
-                    <select 
-                      value={country}
-                      onChange={(e) => setCountry(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3.5 bg-gray-50 border-2 border-transparent focus:border-[#006a4e] focus:bg-white rounded-2xl outline-none transition-all font-bold text-sm appearance-none"
-                      required
-                    >
-                      <option value="Bangladesh">Bangladesh</option>
-                      <option value="India">India</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
-                <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300" size={18} />
-                  <input 
-                    type="email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 bg-gray-50 border-2 border-transparent focus:border-[#006a4e] focus:bg-white rounded-2xl outline-none transition-all font-bold text-sm"
-                    placeholder="Enter your email"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Password</label>
-                  <div className="relative">
-                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300" size={16} />
-                    <input 
-                      type="password" 
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3.5 bg-gray-50 border-2 border-transparent focus:border-[#006a4e] focus:bg-white rounded-2xl outline-none transition-all font-bold text-sm"
-                      placeholder="Password"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-1.5">
-                  <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Confirm</label>
-                  <div className="relative">
-                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300" size={16} />
-                    <input 
-                      type="password" 
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3.5 bg-gray-50 border-2 border-transparent focus:border-[#006a4e] focus:bg-white rounded-2xl outline-none transition-all font-bold text-sm"
-                      placeholder="Confirm"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <button 
-                type="submit"
-                disabled={submitting}
-                className="w-full bg-[#006a4e] text-white py-4 rounded-2xl font-black uppercase tracking-[0.2em] text-xs shadow-lg shadow-green-100 hover:bg-[#005a42] transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center space-x-2 mt-4"
-              >
-                <span>{submitting ? 'Creating Account...' : 'Register Now'}</span>
-                {!submitting && <ChevronRight size={16} />}
-              </button>
-            </form>
-
-            <div className="mt-8 text-center">
-              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-tight">
-                Already have an account? <Link to="/login" className="text-[#006a4e] font-black ml-1 hover:underline">Login Now</Link>
-              </p>
+        <div className="bg-white rounded-2xl border border-gray-100 p-8 space-y-6 shadow-sm">
+          {error && (
+            <div className="bg-red-50 border border-red-100 text-red-600 px-4 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest">
+              {error}
             </div>
-          </div>
+          )}
+
+          <form onSubmit={handleRegister} className="space-y-4">
+            <div className="space-y-2">
+              <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
+              <input 
+                type="text" 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-[#006a4e] font-bold text-sm"
+                placeholder="Your full name"
+                required
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Phone</label>
+                <input 
+                  type="tel" 
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full px-4 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-[#006a4e] font-bold text-xs"
+                  placeholder="01XXX..."
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Country</label>
+                <select 
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  className="w-full px-4 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-[#006a4e] font-bold text-xs appearance-none"
+                  required
+                >
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="India">India</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
+              <input 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-[#006a4e] font-bold text-sm"
+                placeholder="name@example.com"
+                required
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Password</label>
+                <input 
+                  type="password" 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-[#006a4e] font-bold text-xs"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Confirm</label>
+                <input 
+                  type="password" 
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="w-full px-4 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:border-[#006a4e] font-bold text-xs"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+            </div>
+
+            <button 
+              type="submit"
+              disabled={submitting}
+              className="w-full bg-[#006a4e] text-white py-4 rounded-full font-bold uppercase tracking-widest text-[11px] shadow-lg hover:bg-[#005a42] disabled:opacity-50"
+            >
+              {submitting ? 'Creating Account...' : 'Create Account'}
+            </button>
+          </form>
+        </div>
+
+        <div className="text-center">
+          <p className="text-[11px] font-bold text-gray-400 uppercase tracking-tight">
+            Already have an account? <Link to="/login" className="text-[#006a4e] font-black ml-1 hover:underline">Login Now</Link>
+          </p>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@
 }
 
 body {
-  @apply bg-white text-gray-900 antialiased;
+  @apply bg-[#f0f2f5] text-gray-900 antialiased;
   font-family: 'Inter', sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
@@ -16,46 +16,38 @@ body {
 }
 
 .app-button-primary {
-  @apply bg-[#006a4e] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#005a42] active:scale-95 transition-all flex items-center justify-center space-x-2;
+  @apply bg-[#006a4e] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#005a42] flex items-center justify-center space-x-2;
 }
 
 .app-button-secondary {
-  @apply bg-gray-100 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 active:scale-95 transition-all flex items-center justify-center space-x-2;
+  @apply bg-gray-100 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 flex items-center justify-center space-x-2;
 }
 
 .app-input {
-  @apply w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#006a4e] outline-none transition-all font-medium placeholder:text-gray-400 bg-white;
+  @apply w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#006a4e] outline-none font-medium placeholder:text-gray-400 bg-white;
 }
 
 .app-container {
-  @apply max-w-md mx-auto min-h-screen bg-white relative flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.05)] border-x border-gray-50;
+  @apply mx-auto min-h-screen bg-white relative flex flex-col;
+  width: 100%;
+  max-width: 1280px; /* Standard desktop width */
+}
+
+/* On mobile, it should be full width */
+@media (max-width: 640px) {
+  .app-container {
+    @apply max-w-none;
+  }
 }
 
 .section-title {
-  @apply text-2xl font-bold text-gray-900 text-center mb-6 relative;
+  @apply text-2xl font-bold text-gray-900 mb-6;
 }
 
-.section-title::after {
-  content: '';
-  @apply absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-gray-900 rounded-full;
-}
-
-@keyframes slideInRight {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-
-.animate-in.slide-in-from-right {
-  animation: slideInRight 0.3s ease-out;
-}
-
-@keyframes slideInLeft {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-.animate-in.slide-in-from-left {
-  animation: slideInLeft 0.3s ease-out;
+/* Remove all animations */
+* {
+  animation: none !important;
+  transition: none !important;
 }
 
 

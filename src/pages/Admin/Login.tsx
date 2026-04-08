@@ -54,71 +54,97 @@ const AdminLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a192f] flex items-center justify-center px-4">
-      <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl overflow-hidden">
-        <div className="p-8">
-          <div className="flex flex-col items-center mb-8">
-            <div className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center text-white font-bold italic text-3xl mb-4 shadow-lg shadow-red-200">RG</div>
-            <h1 className="text-2xl font-black text-gray-900">ADMIN PANEL</h1>
-            <p className="text-gray-500 text-sm font-bold uppercase tracking-widest mt-1">Secure Login</p>
+    <div className="min-h-screen bg-[#0a192f] flex items-center justify-center px-6">
+      <div className="max-w-md w-full space-y-10">
+        <div className="text-center space-y-4">
+          <div className="w-24 h-24 bg-red-600 rounded-[32px] flex items-center justify-center text-white mx-auto shadow-2xl shadow-red-900/40 rotate-6">
+            <ShieldAlert size={40} strokeWidth={2.5} />
           </div>
+          <div className="space-y-1">
+            <h1 className="text-3xl font-black text-white uppercase tracking-tighter">Admin Access</h1>
+            <p className="text-[10px] font-black text-white/40 uppercase tracking-[0.3em]">Restricted Management Portal</p>
+          </div>
+        </div>
 
+        <div className="bg-white rounded-[48px] shadow-2xl shadow-black/50 border border-white/5 p-12 space-y-10">
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-xl flex items-center space-x-3 text-red-600 animate-in fade-in duration-300">
-              <ShieldAlert size={20} />
-              <p className="text-sm font-bold">{error}</p>
+            <div className="bg-red-50 border border-red-100 text-red-600 px-6 py-4 rounded-[24px] text-[10px] font-black uppercase tracking-tight animate-shake">
+              {error}
             </div>
           )}
 
-          <form onSubmit={handleEmailLogin} className="space-y-4">
-            <div className="relative">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-              <input
-                type="email"
-                placeholder="Admin Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl outline-none focus:border-red-600 focus:bg-white transition-all font-medium"
-                required
-              />
+          <form onSubmit={handleEmailLogin} className="space-y-6">
+            <div className="space-y-3">
+              <label className="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Administrator Email</label>
+              <div className="relative group">
+                <div className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-red-600 transition-colors">
+                  <Mail size={22} />
+                </div>
+                <input
+                  type="email"
+                  placeholder="admin@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pl-16 pr-6 py-6 bg-gray-50 border-2 border-transparent focus:border-red-600 focus:bg-white rounded-[28px] outline-none transition-all font-bold text-sm shadow-inner"
+                  required
+                />
+              </div>
             </div>
-            <div className="relative">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl outline-none focus:border-red-600 focus:bg-white transition-all font-medium"
-                required
-              />
+
+            <div className="space-y-3">
+              <label className="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Security Password</label>
+              <div className="relative group">
+                <div className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-red-600 transition-colors">
+                  <Lock size={22} />
+                </div>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full pl-16 pr-6 py-6 bg-gray-50 border-2 border-transparent focus:border-red-600 focus:bg-white rounded-[28px] outline-none transition-all font-bold text-sm shadow-inner"
+                  required
+                />
+              </div>
             </div>
+
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#0a192f] text-white py-4 rounded-2xl font-black text-lg shadow-xl hover:bg-black transition-all disabled:opacity-50"
+              className="w-full bg-[#0a192f] text-white py-6 rounded-[28px] font-black uppercase tracking-[0.2em] text-[10px] shadow-2xl shadow-black/20 hover:bg-black active:scale-95 disabled:opacity-50 flex items-center justify-center space-x-3 transition-all"
             >
-              {loading ? 'Verifying...' : 'Login to Dashboard'}
+              {loading ? (
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  <span>Verifying Credentials</span>
+                </div>
+              ) : (
+                <>
+                  <span>Enter Dashboard</span>
+                  <LogIn size={18} />
+                </>
+              )}
             </button>
           </form>
 
-          <div className="mt-6">
-            <div className="relative flex items-center justify-center mb-6">
-              <div className="border-t border-gray-100 w-full"></div>
-              <span className="bg-white px-4 text-xs font-bold text-gray-400 uppercase tracking-widest absolute">OR</span>
-            </div>
-            <button
-              onClick={handleGoogleLogin}
-              disabled={loading}
-              className="w-full bg-white border-2 border-gray-100 text-gray-700 py-4 rounded-2xl font-bold flex items-center justify-center space-x-3 hover:bg-gray-50 transition-all"
-            >
-              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-5 h-5" />
-              <span>Continue with Google</span>
-            </button>
+          <div className="relative flex items-center">
+            <div className="flex-grow border-t border-gray-100"></div>
+            <span className="flex-shrink mx-6 text-[9px] text-gray-300 font-black uppercase tracking-[0.3em]">OAuth Login</span>
+            <div className="flex-grow border-t border-gray-100"></div>
           </div>
+
+          <button
+            onClick={handleGoogleLogin}
+            disabled={loading}
+            className="w-full flex items-center justify-center space-x-4 bg-gray-50 border-2 border-transparent hover:border-gray-100 py-5 rounded-[28px] transition-all active:scale-95 group"
+          >
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-6 h-6 group-hover:scale-110 transition-transform" />
+            <span className="font-black text-gray-700 uppercase text-[10px] tracking-[0.2em]">Continue with Google</span>
+          </button>
         </div>
-        <div className="bg-gray-50 p-6 text-center border-t border-gray-100">
-          <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">Restricted Area</p>
+
+        <div className="text-center">
+          <p className="text-[10px] text-white/30 font-black uppercase tracking-[0.4em]">Authorized Personnel Only</p>
         </div>
       </div>
     </div>
