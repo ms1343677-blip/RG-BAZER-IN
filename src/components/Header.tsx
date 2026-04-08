@@ -25,44 +25,34 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className="bg-[#0a192f] text-white sticky top-0 z-40 px-4 py-3 flex justify-between items-center shadow-xl border-b border-white/5">
-        <div className="flex items-center space-x-3">
-          <button 
-            onClick={() => setIsDrawerOpen(true)}
-            className="p-2 hover:bg-white/10 rounded-xl transition-all"
-          >
-            <Menu size={24} />
-          </button>
-          <Link to="/" className="flex items-center">
-            <div className="flex items-center">
-              <div className="relative flex items-center">
-                <div className="relative mr-1">
-                  <ShoppingBag className="text-red-600 w-8 h-8" strokeWidth={2.5} />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white text-[7px] font-black px-0.5 rounded-sm">RG</div>
-                </div>
-                <span className="text-2xl font-black text-red-600 tracking-tighter italic">BAZZER</span>
+      <header className="bg-white sticky top-0 z-40 px-4 py-2 flex justify-between items-center border-b border-gray-100">
+        <Link to="/" className="flex items-center">
+          <div className="flex items-center">
+            <div className="relative flex items-center">
+              <div className="relative mr-1">
+                <ShoppingBag className="text-red-600 w-7 h-7" strokeWidth={2.5} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white text-[6px] font-black px-0.5 rounded-sm">RG</div>
               </div>
+              <span className="text-xl font-black text-red-600 tracking-tighter italic">BAZZER</span>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
 
-        <div className="flex items-center space-x-3">
-          {isAdmin && (
-            <Link to="/admin" className="bg-red-600 text-white p-2 rounded-xl shadow-lg shadow-red-900/20 hover:bg-red-700 transition-all mr-1" title="Admin Panel">
-              <ShieldCheck size={20} />
-            </Link>
-          )}
+        <div className="flex items-center space-x-2">
           {user ? (
-            <div className="flex items-center space-x-3">
-              <Link to="/add-money" className="bg-[#006a4e] px-3 py-1.5 rounded-full flex items-center space-x-2 shadow-lg shadow-green-900/20 border border-white/10">
+            <>
+              <Link to="/add-money" className="bg-[#006a4e] px-3 py-1.5 rounded-md flex items-center space-x-2 shadow-sm">
                 <Wallet size={14} className="text-white" />
-                <span className="text-white font-black text-xs">
+                <span className="text-white font-bold text-xs">
                   {profile?.balance?.toFixed(0) || '0'}৳
                 </span>
+                <div className="bg-white/20 p-0.5 rounded">
+                  <UserIcon size={12} className="text-white" />
+                </div>
               </Link>
               <button 
                 onClick={() => setIsDrawerOpen(true)}
-                className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/20 shadow-lg active:scale-95 transition-all"
+                className="w-10 h-10 rounded-full overflow-hidden border border-gray-100"
               >
                 <img 
                   src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=random`} 
@@ -71,13 +61,13 @@ const Header: React.FC = () => {
                   referrerPolicy="no-referrer"
                 />
               </button>
-            </div>
+            </>
           ) : (
             <Link 
               to="/login" 
-              className="bg-red-600 text-white px-5 py-2 rounded-xl font-black text-xs hover:bg-red-700 transition-all shadow-lg shadow-red-900/20 flex items-center space-x-2 uppercase tracking-wider"
+              className="bg-[#006a4e] text-white px-4 py-2 rounded-md font-bold text-xs flex items-center space-x-2"
             >
-              <LogIn size={16} />
+              <LogIn size={14} />
               <span>Login</span>
             </Link>
           )}
